@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Change a parameter file -->
+<changes>
+
+  <change type="replace" path="mergerTreeBuildMasses">
+    <mergerTreeBuildMasses value="replicate">
+      <replicationCount value="9"/>
+      <mergerTreeBuildMasses           value="readXML"                  >
+        <fileName          value="/home/arobertson/Galacticus/forked_galacticus/galacticus/parameters/Roman/MCMC/treeMasses_lowz.xml"/>
+      </mergerTreeBuildMasses>
+    </mergerTreeBuildMasses>
+  </change>
+
+  <change type="replace" path="mergerTreeConstructor">
+    <mergerTreeConstructor value="build">
+      <processDescending value="true" />
+      <redshiftBase value="0.29" />
+      <timeSnapTolerance value="1e-06" />
+      <treeBeginAt value="0" />
+    </mergerTreeConstructor>
+  </change>
+
+  <change type="update" path="outputTimes/redshifts" value="0.29"/>
+  <change type="update" path="outputFileName" value="romanEPS_singleLikelihood_lowz.hdf5"/>
+
+  <!-- Comparisons with observables -->
+  <change type="replace" path="outputAnalysis">
+  <outputAnalysis value="heatedLikelihood" >
+    <temperature value="3" />
+    <outputAnalysis value="multi">
+      <outputAnalysis value="stellarVsHaloMassRelationLeauthaud2012" >
+        <redshiftInterval                     value="1"      />
+        <computeScatter                       value="true"  />
+        <systematicErrorPolynomialCoefficient value="0.0 0.0"/>
+        <likelihoodBins                        value="5 9 13"     />
+      </outputAnalysis>
+      <outputAnalysis value="stellarVsHaloMassRelationLeauthaud2012" >
+        <redshiftInterval                     value="1"      />
+        <computeScatter                       value="false"  />
+        <systematicErrorPolynomialCoefficient value="0.0 0.0"/>
+        <likelihoodBins                        value="5 9 13"     />
+      </outputAnalysis>
+      <outputAnalysis value="heatedLikelihood" >
+        <temperature value="3" /> <!-- Doubly heated -->
+        <outputAnalysis value="massSizeRelationShen2003" />
+      </outputAnalysis>
+    </outputAnalysis>
+  </outputAnalysis>
+  </change>
+
+</changes>
+
+
+

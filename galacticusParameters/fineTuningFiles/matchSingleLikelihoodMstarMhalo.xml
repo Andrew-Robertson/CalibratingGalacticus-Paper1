@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Turns a massFunction run into one that matches the singleLikelihoods in terms of the outputTimes and base redshift of the merger trees -->
+<changes>
+  <change type="update" path="outputTimes/redshifts" value="0.29"/> <!-- Leauthaud range is 0.22 to 0.48 -->
+  <change type="append" path="mergerTreeConstructor">
+    <redshiftBase value="0.29"/>
+  </change>
+  <!-- These will cause most outputAnalysis to fail, so remove all but Mstar-Mhalo -->
+  <change type="replace" path="outputAnalysis">
+    <outputAnalysis value="multi">
+      <outputAnalysis value="stellarVsHaloMassRelationLeauthaud2012">
+        <computeScatter value="false"/>
+        <likelihoodNormalize value="false"/>
+        <redshiftInterval value="1"/>
+        <systematicErrorMassHaloPolynomialCoefficient value="0.0"/>
+          <systematicErrorPolynomialCoefficient value="0.0 0.0"/>
+      </outputAnalysis>
+      <outputAnalysis value="stellarVsHaloMassRelationLeauthaud2012">
+        <computeScatter value="true"/>
+        <likelihoodNormalize value="false"/>
+        <redshiftInterval value="1"/>
+        <systematicErrorMassHaloPolynomialCoefficient value="0.0"/>
+          <systematicErrorPolynomialCoefficient value="0.0 0.0"/>
+      </outputAnalysis>
+    </outputAnalysis>
+  </change>
+  <!-- lots of trees! -->
+  <change type="update" path="mergerTreeBuildMasses/treesPerDecade" value="10000"/>
+  <change type="update" path="mergerTreeBuildMasses/massTreeMaximum" value="1.0e14"/>
+</changes>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Change a parameter file -->
+<changes>
+
+  <change type="append" path="nodePropertyExtractor">
+    <nodePropertyExtractor value="luminosityEmissionLine">
+      <cloudyTableFileName value="%DATASTATICPATH%/hiiRegions/emissionLineLuminosities_BC2003_highResolution_imfChabrier.hdf5"/>
+      <lineNames value="balmerBeta4863 balmerAlpha6565 nitrogenII6550 nitrogenII6585 oxygenII3727 oxygenII3730 oxygenIII5008 sulfurII6718  sulfurII6733 sulfurIII9071 sulfurIII9533"/>
+      <component value="disk"/>
+      <toleranceRelative value="1.0d-2"/>
+      <hiiRegionLuminosityFunction value="powerLaw">
+      <exponent value="2.5d0"/>
+      </hiiRegionLuminosityFunction>
+      <hiiRegionEscapeFraction value="fixed">
+      <escapeFraction value="0.1"/>
+      <ageLimit value="0.01"/>
+      </hiiRegionEscapeFraction>
+    </nodePropertyExtractor>
+    <nodePropertyExtractor value="luminosityEmissionLine">
+      <cloudyTableFileName value="%DATASTATICPATH%/hiiRegions/emissionLineLuminosities_BC2003_highResolution_imfChabrier.hdf5"/>
+      <lineNames value="balmerBeta4863 balmerAlpha6565 nitrogenII6550 nitrogenII6585 oxygenII3727 oxygenII3730 oxygenIII5008 sulfurII6718  sulfurII6733 sulfurIII9071 sulfurIII9533"/>
+      <component value="spheroid"/>
+      <toleranceRelative value="1.0d-2"/>
+      <hiiRegionLuminosityFunction value="powerLaw">
+      <exponent value="2.5d0"/>
+      </hiiRegionLuminosityFunction>
+      <hiiRegionEscapeFraction value="fixed">
+      <escapeFraction value="0.1"/>
+      <ageLimit value="0.01"/>
+      </hiiRegionEscapeFraction>
+    </nodePropertyExtractor>
+    <nodePropertyExtractor value="lmnstyEmssnLineAGN">
+      <!-- hard coded on main branch <cloudyTableFileNameAGN value="%DATASTATICPATH%/hiiRegions/emissionLineLuminosities_AGN.hdf5"/> -->
+      <densityHydrogen value="1.0d3"/>
+      <lineNames value="balmerBeta4863 balmerAlpha6565 nitrogenII6550 nitrogenII6585 oxygenII3727 oxygenII3730 oxygenIII5008 sulfurII6718  sulfurII6733 sulfurIII9071 sulfurIII9533"/>
+      <indexSpectralShortWavelength value="-1.7"/>
+      <factorFillingVolume value="0.01"/>
+    </nodePropertyExtractor>
+    <nodePropertyExtractor value="starFormationHistory">
+      <component value="disk"/>
+    </nodePropertyExtractor>
+    <nodePropertyExtractor value="starFormationHistory">
+      <component value="spheroid"/>
+    </nodePropertyExtractor>
+  </change>
+  
+</changes>
+
+
+

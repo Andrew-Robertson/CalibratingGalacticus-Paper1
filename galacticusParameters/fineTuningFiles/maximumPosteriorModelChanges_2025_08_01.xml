@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- These were the maximum posterior model parameters for the run that was done here on Carnegie's OBS HPC
+/carnegie/nobackup/users/arobertson/Galacticus/noodling/Parameter_optimisation/constrainingGalacticusParameters/MCMC/parameterChanges/MCMC/varyHandCalibratedModel/broaderPriors/odeAccuracy1e-4/run/mcmcParameterChanges/maximumPosteriorModelChanges.xml
+ -->
+<changes>
+  <change type="update" path="nodeOperator/nodeOperator[@value='stellarFeedbackDisks']/stellarFeedbackOutflows/stellarFeedbackOutflows/velocityCharacteristic" value="182.4141178001062" />
+  <change type="update" path="nodeOperator/nodeOperator[@value='stellarFeedbackDisks']/stellarFeedbackOutflows/stellarFeedbackOutflows/exponent" value="2.4949976085279038" />
+  <change type="update" path="hotHaloOutflowReincorporation/gamma" value="4.3895975809570364" />
+  <change type="update" path="hotHaloOutflowReincorporation/delta1" value="-1.4841745278384948" />
+  <change type="update" path="hotHaloOutflowReincorporation/delta2" value="-0.4325586894318513" />
+  <change type="update" path="blackHoleCGMHeating/efficiencyRadioMode" value="0.2290335508970814" />
+  <change type="update" path="componentSpheroid/ratioAngularMomentumScaleRadius" value="0.1185581220590025" />
+</changes>

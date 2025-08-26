@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Change a parameter file -->
+<changes>
+
+  <change type="replace" path="mergerTreeBuildMasses">
+    <mergerTreeBuildMasses value="sampledDistributionUniform">
+      <massTreeMinimum value="1.0e11"/> 
+      <massTreeMaximum value="1.0e15"/> 
+      <treesPerDecade value="1000"/> 
+    </mergerTreeBuildMasses>
+  </change>
+
+  <change type="update" path="outputTimes/redshifts" value="2.5 2.0 0.88 0.4 0.32 0.0"/>
+  <change type="update" path="outputFileName" value="romanEPS_massFunction.hdf5"/>
+
+  <!-- Photometric output -->
+  <change type="append" path="">
+    <luminosityFilter value="SDSS_u SDSS_r SDSS_i SuprimeCam_B"/>
+    <luminosityType value="observed observed observed observed"/>
+    <luminosityRedshift value="all all all all"/>
+  </change>
+
+  <!-- Comparisons with observables -->
+  <change type="replace" path="outputAnalysis">
+  <outputAnalysis value="multi">
+    <outputAnalysis value="massFunctionStellarZFOURGE">
+      <redshiftInterval value="6" /> <!-- 6: z=2.0-2.5 -->
+    </outputAnalysis>
+    <outputAnalysis value="massFunctionStellarULTRAVISTA">
+      <redshiftInterval value="4" />
+    </outputAnalysis>
+    <outputAnalysis value="massFunctionStellarBernardi2013SDSS"/>
+    <outputAnalysis value="massFunctionStellarBaldry2012GAMA"/>
+    <outputAnalysis value="massFunctionStellarSDSS"/>
+    <outputAnalysis value="stellarVsHaloMassRelationLeauthaud2012" >
+      <redshiftInterval                     value="1"      />
+      <computeScatter                       value="false"  />
+    </outputAnalysis>
+    <outputAnalysis value="stellarVsHaloMassRelationLeauthaud2012" >
+      <redshiftInterval                     value="3"      />
+      <computeScatter                       value="false"  />
+    </outputAnalysis>
+  </outputAnalysis>
+  </change>
+
+</changes>
+
+
+

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Change a parameter file -->
+<changes>
+  <!-- Comparisons with observables -->
+  <change type="append" path="outputAnalysis">
+    <!-- <outputAnalysis value="massMetallicityAndrews2013"/> REQUIRES OXYGEN ABUNDANCE-->
+    <outputAnalysis value="massMetallicityBlanc2019"/>
+    <outputAnalysis value="morphologicalFractionGAMAMoffett2016"/>
+    <!-- NOT THIS, THIS IS FOR CLUSTER MEMBERS (HALO MASSES ABOVE 10^14.8 Msun)
+    <outputAnalysis value="quiescentFractionWagner2016">
+      <redshiftRange value="low" />
+    </outputAnalysis> -->
+    <outputAnalysis value="starFormationRateFunctionRobotham2011"/> <!-- doesn't seem to have target data -->
+    <outputAnalysis value="stellarVsHaloMassRelationLeauthaud2012" >
+      <redshiftInterval                     value="2"      />
+      <computeScatter                       value="false"  />
+    </outputAnalysis>
+    <!-- M-sigma relation-->
+    <outputAnalysis value="blackHoleVelocityDispersionRelation"/> 
+    <!-- Galaxy clustering (not sure how this works on EPS trees)-->
+    <!-- <outputAnalysis value="correlationFunctionHearin2013SDSS"/>  LEAD TO SEGFAULT WITH EPS TREES-->
+    <!-- ZFOURGE, ALL BINS-->
+    <outputAnalysis value="massFunctionStellarZFOURGE">
+      <redshiftInterval value="0" /> <!-- z=0.2-0.5 -->
+    </outputAnalysis>
+    <outputAnalysis value="massFunctionStellarZFOURGE">
+      <redshiftInterval value="1" /> <!-- z=0.5-0.75 -->
+    </outputAnalysis>
+    <outputAnalysis value="massFunctionStellarZFOURGE">
+      <redshiftInterval value="2" /> <!-- z=0.75-1.0 -->
+    </outputAnalysis>
+    <outputAnalysis value="massFunctionStellarZFOURGE">
+      <redshiftInterval value="3" /> <!-- z=1.0-1.25 -->
+    </outputAnalysis>
+    <outputAnalysis value="massFunctionStellarZFOURGE">
+      <redshiftInterval value="4" /> <!-- z=1.25-1.5 -->
+    </outputAnalysis>
+    <outputAnalysis value="massFunctionStellarZFOURGE">
+      <redshiftInterval value="5" /> <!-- z=1.5-2.0 -->
+    </outputAnalysis>
+    <outputAnalysis value="massFunctionStellarZFOURGE">
+      <redshiftInterval value="6" /> <!-- z=2.0-2.5 -->
+    </outputAnalysis>
+    <outputAnalysis value="massFunctionStellarZFOURGE">
+      <redshiftInterval value="7" /> <!-- z=2.5-3.0 -->
+    </outputAnalysis>
+    <!-- ALFALFA HI mass function -->
+    <outputAnalysis value="massFunctionHIALFALFAMartin2010">
+      <systematicErrorPolynomialCoefficient value="-0.0414" /> 
+    </outputAnalysis>
+    <!-- star forming main sequence -->
+    <outputAnalysis value="starFormingMainSequenceSchreiber2015">
+      <redshiftIndex value="1" /> 
+    </outputAnalysis>
+    <outputAnalysis value="starFormingMainSequenceSchreiber2015">
+      <redshiftIndex value="2" /> 
+    </outputAnalysis>
+    <outputAnalysis value="starFormingMainSequenceSchreiber2015">
+      <redshiftIndex value="3" /> 
+    </outputAnalysis>
+    <outputAnalysis value="starFormingMainSequenceSchreiber2015">
+      <redshiftIndex value="4" /> 
+    </outputAnalysis>
+    <outputAnalysis value="starFormingMainSequenceSchreiber2015">
+      <redshiftIndex value="5" /> 
+    </outputAnalysis>
+    <!-- SDSS luminosity functions -->
+    <outputAnalysis value="luminosityFunctionMonteroDorta2009SDSS">
+      <band value="r" /> 
+    </outputAnalysis>
+  </change>
+
+  <!-- Redshifts required for various outputs-->
+  <change type="update" path="outputTimes/redshifts" value="3.25 3.0 2.75 2.5 2.25 2.0 1.75 1.5 1.25 1.0 0.75 0.5 0.4 0.25 0.1 0.0"/>
+  <!-- Track elements for metallicity-->
+  <change type="append" path="">
+    <elementsToTrack value="O"/>
+  </change>
+  <!-- Photometric output -->
+  <change type="update" path="luminosityFilter" value="SDSS_u SDSS_g SDSS_r SDSS_r SDSS_i SDSS_z SuprimeCam_B"/>
+  <change type="update" path="luminosityType" value="observed observed observed observed observed observed observed"/>
+  <change type="update" path="luminosityRedshift" value="all all all all all all all"/>
+  <change type="append" path="">
+    <luminosityPostprocessSet value="default default default recent default default default"/>
+  </change>
+  <change type="append" path="">
+    <stellarPopulationSpectraPostprocessorBuilder value="lookup">
+      <stellarPopulationSpectraPostprocessor value="identity" />
+      <stellarPopulationSpectraPostprocessor value="sequence">
+        <stellarPopulationSpectraPostprocessor value="identity" />
+        <stellarPopulationSpectraPostprocessor value="recent">
+          <timeLimit value="0.01" />
+        </stellarPopulationSpectraPostprocessor>
+      </stellarPopulationSpectraPostprocessor>
+      <names value="default recent" />
+    </stellarPopulationSpectraPostprocessorBuilder>
+  </change>
+</changes>
+
+
+

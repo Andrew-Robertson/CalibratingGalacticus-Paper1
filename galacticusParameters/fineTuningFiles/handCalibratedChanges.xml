@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<changes>
+  <change type="update" path="starFormationRateSpheroids/starFormationTimescale/efficiency" value="0.1" />
+  <change type="update" path="blackHoleCGMHeating/efficiencyRadioMode" value="0.3" />
+  <change type="update" path="nodeOperator/nodeOperator[@value='stellarFeedbackDisks']/stellarFeedbackOutflows/stellarFeedbackOutflows/velocityCharacteristic" value="150" />
+  <change type="update" path="componentSpheroid/ratioAngularMomentumScaleRadius" value="0.2" />
+  <change type="update" path="nodeOperator/nodeOperator[@value='stellarFeedbackDisks']/stellarFeedbackOutflows/stellarFeedbackOutflows/exponent" value="2.5" />
+  <change type="update" path="nodeOperator/nodeOperator[@value='barInstability']/galacticDynamicsBarInstability/fractionAngularMomentumRetainedSpheroid" value="0.2" />
+  <!-- BensonBower2010 stuff -->
+  <change type="append" path="nodeOperator">
+    <nodeOperator value="coolingEnergyRadiated"/>
+  </change>
+  <change type="replace" path="coolingTimeAvailable">
+    <coolingTimeAvailable value="bensonBower2010"/>
+  </change>
+  <change type="append" path="coolingSpecificAngularMomentum">
+   <useInteriorMean value="true"/>
+  </change>
+  <!-- Henrqieus 2013 stuff -->
+    <change type="replace" path="hotHaloOutflowReincorporation">
+    <hotHaloOutflowReincorporation value="henriques2013">
+      <gamma value="5.0"/>
+      <delta1 value="1.0"/>
+      <delta2 value="2.0"/>
+    </hotHaloOutflowReincorporation>
+  </change>
+  <!-- Change c(M,z) - here no scatter -->
+  <change type="replace" path="darkMatterProfileScaleRadius">
+    <darkMatterProfileScaleRadius value="concentration" >
+      <correctForConcentrationDefinition    value="true"              />
+      <darkMatterProfileConcentration value="diemerJoyce2019">
+        <!-- Use the Diemer & Joyce (2019; ApJ; 871; 168; http://adsabs.harvard.edu/abs/2019ApJ...871..168D) model for concentrations. -->
+      </darkMatterProfileConcentration>
+    </darkMatterProfileScaleRadius>
+  </change>  
+  <!-- Different random seed for trees -->
+  <change type="append" path="">
+    <randomNumberGenerator value="GSL">
+      <seed value="42"/>
+    </randomNumberGenerator>
+  </change>
+</changes>

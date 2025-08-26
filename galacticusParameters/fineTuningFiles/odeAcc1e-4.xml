@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!-- Change a parameter file -->
+    <changes>
+    <change type="update" path="mergerTreeNodeEvolver/odeToleranceAbsolute" value="0.0001"/>
+    <change type="update" path="mergerTreeNodeEvolver/odeToleranceRelative" value="0.0001"/>
+    </changes>
+    
