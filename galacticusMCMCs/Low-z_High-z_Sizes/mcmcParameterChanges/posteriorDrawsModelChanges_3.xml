@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<changes>
+  <change type="update" path="nodeOperator/nodeOperator[@value='stellarFeedbackDisks']/stellarFeedbackOutflows/stellarFeedbackOutflows/velocityCharacteristic" value="188.07589945786052" />
+  <change type="update" path="nodeOperator/nodeOperator[@value='stellarFeedbackDisks']/stellarFeedbackOutflows/stellarFeedbackOutflows/exponent" value="2.221338987564165" />
+  <change type="update" path="hotHaloOutflowReincorporation/gamma" value="5.660266658392746" />
+  <change type="update" path="hotHaloOutflowReincorporation/delta1" value="-0.6565768813190597" />
+  <change type="update" path="hotHaloOutflowReincorporation/delta2" value="1.2460357389424337" />
+  <change type="update" path="blackHoleCGMHeating/efficiencyRadioMode" value="0.248745119280168" />
+  <change type="update" path="componentSpheroid/ratioAngularMomentumScaleRadius" value="0.1474894206246595" />
+  <change type="replaceOrAppend" path="randomNumberGenerator">
+    <randomNumberGenerator value="GSL">
+      <seed value="1445335" />
+    </randomNumberGenerator>
+  </change>
+</changes>

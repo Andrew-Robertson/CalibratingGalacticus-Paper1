@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parameters>
+  <!-- Parameters for tutorial on constraining Galacticus parameters - https://github.com/galacticusorg/galacticus/wiki/Tutorial%3A-Constraining-Galacticus-Parameters -->
+  <formatVersion>2</formatVersion>
+  <lastModified revision="165490f4968c699f7e5bb73ef60bcb7e626f51e6"/>
+
+  <verbosityLevel value="standard"/>
+
+  <task value="posteriorSample">
+    <initializeNodeClassHierarchy value="false"/>
+  </task>
+
+  <outputFileName value="galacticus.hdf5"/>
+
+  <posteriorSampleLikelihood value="galaxyPopulation">
+    <baseParametersFileName   value="/home/arobertson/Galacticus/forked_galacticus/galacticus/parameters/Roman/hierarchicalParameters/romanEPS.xml"/>
+    <changeParametersFileNames value="../../../../changes.xml /home/arobertson/Galacticus/forked_galacticus/galacticus/parameters/Roman/hierarchicalParameters/highzLikelihood.xml ../../odeAcc1e-4.xml"/>
+    <failedParametersFileName value="./failedParameters.xml"           />
+    <randomize                value="false"                            />
+    <evolveForestsVerbosity   value="silent"                           />
+    <collaborativeMPI         value="false"/>
+  </posteriorSampleLikelihood> 
+
+  <!-- MCMC -->
+  <posteriorSampleSimulation value="differentialEvolution">
+    <stepsMaximum           value="1000"/>
+    <acceptanceAverageCount value="  10"/>
+    <stateSwapCount         value=" 100"/>
+    <logFileRoot            value="mcmcChains"/>
+    <reportCount            value="  10"/>
+    <sampleOutliers         value="false"/>
+    <logFlushCount          value="      1"/>
+
+    <posteriorSampleState value="correlation">
+      <acceptedStateCount value="100"/>
+    </posteriorSampleState>
+
+    <posteriorSampleStateInitialize value="gaussianSphere">
+      <radiusSphere value="1.0e-2"/>
+      <radiusIsRelative value="true"/>
+    </posteriorSampleStateInitialize>
+    
+    <posteriorSampleConvergence value="gelmanRubin">
+      <thresholdHatR              value=" 5.00"/>
+      <burnCount                  value="30"   />
+      <testCount                  value="10"   />
+      <outlierCountMaximum        value=" 1"   />
+      <outlierSignificance        value=" 0.95"/>
+      <outlierLogLikelihoodOffset value="60"   />
+      <reportCount                value=" 1"   />
+      <logFileName                value="mcmcConvergence.log"/>
+    </posteriorSampleConvergence>
+    
+    <posteriorSampleStoppingCriterion value="stepCount">
+      <stopAfterCount value="5000"/>
+    </posteriorSampleStoppingCriterion>
+
+    <posteriorSampleDffrntlEvltnRandomJump   value="adaptive"/>
+
+    <posteriorSampleDffrntlEvltnProposalSize value="adaptive" >
+      <gammaInitial          value="1.000e+0"/>
+      <gammaAdjustFactor     value="1.100e+0"/>
+      <gammaMinimum          value="1.000e-4"/>
+      <gammaMaximum          value="3.000e+0"/>
+      <acceptanceRateMinimum value="0.100e+0"/>
+      <acceptanceRateMaximum value="0.900e+0"/>
+      <updateCount           value="10"     />
+    </posteriorSampleDffrntlEvltnProposalSize>
+
+     <!-- Disk Feedback -->
+    <modelParameter value="active">
+      <name value="nodeOperator/nodeOperator[@value='stellarFeedbackDisks']/stellarFeedbackOutflows/stellarFeedbackOutflows/velocityCharacteristic"/>
+      <distributionFunction1DPrior value="logNormal">
+        <limitLower value="25.0"/>
+        <limitUpper value="300.0"/>
+        <x0 value="150.0"/>
+        <sigma value="0.5"/>
+      </distributionFunction1DPrior>
+      <operatorUnaryMapper value="identity"/>
+      <distributionFunction1DPerturber value="cauchy">
+        <median value="0.0"/>
+        <scale value="1.0e-3"/>
+      </distributionFunction1DPerturber>
+    </modelParameter>
+    <modelParameter value="active">
+      <name value="nodeOperator/nodeOperator[@value='stellarFeedbackDisks']/stellarFeedbackOutflows/stellarFeedbackOutflows/exponent"/>
+      <distributionFunction1DPrior value="uniform">
+        <limitLower value="0.0"/>
+        <limitUpper value="5.0"/>
+      </distributionFunction1DPrior>
+      <operatorUnaryMapper value="identity"/>
+      <distributionFunction1DPerturber value="cauchy">
+        <median value="0.0"/>
+        <scale value="1.0e-3"/>
+      </distributionFunction1DPerturber>
+    </modelParameter>
+    <!-- Henriques  hotHaloOutflow-->
+    <modelParameter value="active">
+      <name value="hotHaloOutflowReincorporation/gamma"/>
+      <distributionFunction1DPrior value="logNormal">
+        <limitLower value="1.0"/>
+        <limitUpper value="25.0"/>
+        <x0 value="5.0"/>
+        <sigma value="0.5"/>
+      </distributionFunction1DPrior>
+      <operatorUnaryMapper value="identity"/>
+      <distributionFunction1DPerturber value="cauchy">
+        <median value="0.0"/>
+        <scale value="1.0e-3"/>
+      </distributionFunction1DPerturber>
+    </modelParameter>
+    <modelParameter value="active">
+      <name value="hotHaloOutflowReincorporation/delta1"/>
+      <distributionFunction1DPrior value="uniform">
+        <limitLower value="-2.0"/>
+        <limitUpper value="4.0"/>
+      </distributionFunction1DPrior>
+      <operatorUnaryMapper value="identity"/>
+      <distributionFunction1DPerturber value="cauchy">
+        <median value="0.0"/>
+        <scale value="1.0e-3"/>
+      </distributionFunction1DPerturber>
+    </modelParameter>
+    <modelParameter value="active">
+      <name value="hotHaloOutflowReincorporation/delta2"/>
+      <distributionFunction1DPrior value="uniform">
+        <limitLower value="-1.0"/>
+        <limitUpper value="5.0"/>
+      </distributionFunction1DPrior>
+      <operatorUnaryMapper value="identity"/>
+      <distributionFunction1DPerturber value="cauchy">
+        <median value="0.0"/>
+        <scale value="1.0e-3"/>
+      </distributionFunction1DPerturber>
+    </modelParameter>
+     <!-- AGN Feedback -->
+    <modelParameter value="active">
+      <name value="blackHoleCGMHeating/efficiencyRadioMode"/>
+      <distributionFunction1DPrior value="logNormal">
+        <limitLower value="0.03"/>
+        <limitUpper value="1.0"/>
+        <x0 value="0.3"/>
+        <sigma value="0.5"/>
+      </distributionFunction1DPrior>
+      <operatorUnaryMapper value="identity"/>
+      <distributionFunction1DPerturber value="cauchy">
+        <median value="0.0"/>
+        <scale value="1.0e-3"/>
+      </distributionFunction1DPerturber>
+    </modelParameter>
+     <!-- spheroid sizes -->
+    <modelParameter value="active">
+      <name value="componentSpheroid/ratioAngularMomentumScaleRadius"/>
+      <distributionFunction1DPrior value="logNormal">
+        <limitLower value="0.1"/>
+        <limitUpper value="0.5"/>
+        <x0 value="0.2"/>
+        <sigma value="0.5"/>
+      </distributionFunction1DPrior>
+      <operatorUnaryMapper value="identity"/>
+      <distributionFunction1DPerturber value="cauchy">
+        <median value="0.0"/>
+        <scale value="1.0e-3"/>
+      </distributionFunction1DPerturber>
+    </modelParameter>
+  <!-- End free parameter section -->
+  </posteriorSampleSimulation>
+
+  <!-- Random seed -->
+  <randomNumberGenerator value="GSL">
+    <seed          value="42" />
+    <mpiRankOffset value="true"/>
+  </randomNumberGenerator>
+  
+  <errorWaitTime value="0"/>
+</parameters>
