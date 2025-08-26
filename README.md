@@ -1,5 +1,5 @@
 # CalibratingGalacticus-Paper1
-This repositry contains parameter files, catalogues, plotting scripts, etc. related to the paper "Accelerated calibration of semi-analytic galaxy formation models"
+This repository contains parameter files, catalogues, plotting scripts, etc. related to the paper "Accelerated calibration of semi-analytic galaxy formation models"
 
 ## Getting the data
 
@@ -16,7 +16,7 @@ unzip -n galacticusRuns.zip
 
 ## Plotting scripts
 
-The `paper_plots` directory contains scripts that generate the figures from "Accelerated calibration of semi-analytic galaxy formation models". For example, Figure 1 from the paper can be generated with `python cornerPlot_lowzSHMR.py` run from the `paper_plots` directory. All the files necessary to generate the plots should be available as part of this repository (if you have followed the "Getting the data" instructions above). Various publicly available packages may need to be installed, but hopefully everything is easily installable (please reach out to Andrew Robertson if anything doesn't work, and apologies that this repositry was an afterthought!).
+The `paper_plots` directory contains scripts that generate the figures from "Accelerated calibration of semi-analytic galaxy formation models". For example, Figure 1 from the paper can be generated with `python cornerPlot_lowzSHMR.py` run from the `paper_plots` directory. All the files necessary to generate the plots should be available as part of this repository (if you have followed the "Getting the data" instructions above). Various publicly available packages may need to be installed, but hopefully everything is easily installable (please reach out to Andrew Robertson if anything doesn't work, and apologies that this repository was an afterthought!).
 
 ## MCMC runs
 
