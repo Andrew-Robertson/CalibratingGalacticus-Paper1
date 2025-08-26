@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Change a parameter file -->
+<changes>
+  <change type="update" path="mergerTreeBuildMasses/mergerTreeBuildMasses/fileName" value="/home/arobertson/Galacticus/forked_galacticus/galacticus/parameters/Roman/MCMC/treeMasses_lowz_LeauthaudBinCentres.xml"/>
+  <change type="remove" path="outputAnalysis/outputAnalysis/outputAnalysis[@value='heatedLikelihood']"/>
+</changes>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Remove massSizeRelationShen2003 from low-z likelihood -->
+<changes>
+<change type="remove" path="outputAnalysis/outputAnalysis/outputAnalysis[@value='heatedLikelihood']"/>
+</changes>
