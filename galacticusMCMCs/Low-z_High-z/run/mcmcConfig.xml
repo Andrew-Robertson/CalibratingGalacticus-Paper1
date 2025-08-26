@@ -14,8 +14,8 @@
 
   <posteriorSampleLikelihood value="independentLikelihoods">
     <posteriorSampleLikelihood value="galaxyPopulation">
-      <baseParametersFileName   value="/home/arobertson/Galacticus/forked_galacticus/galacticus/parameters/Roman/hierarchicalParameters/romanEPS.xml"/>
-      <changeParametersFileNames value="../../../../changes.xml /home/arobertson/Galacticus/forked_galacticus/galacticus/parameters/Roman/hierarchicalParameters/lowzLikelihood.xml ../../odeAcc1e-4.xml ../removeMassSizeRelationShen2003Likelihood.xml"/>
+      <baseParametersFileName   value="../../../galacticusParameters/romanEPS.xml"/>
+      <changeParametersFileNames value="../../../galacticusParameters/fineTuningFiles/handCalibratedChanges.xml ../../../galacticusParameters/lowzLikelihood.xml ../../../galacticusParameters/fineTuningFiles/odeAcc1e-4.xml ../../../galacticusParameters/fineTuningFiles/removeMassSizeRelationShen2003Likelihood.xml"/>
       <failedParametersFileName value="./failedParameters.xml"           />
       <randomize                value="false"                            />
       <evolveForestsVerbosity   value="silent"                           />
